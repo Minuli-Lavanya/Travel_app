@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/models/TravelModel.dart';
 import 'package:travel_app/provider/travel_data_provider.dart';
+import 'package:travel_app/screens/details.dart';
 
 class travel_list extends StatefulWidget {
   const travel_list({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _travel_listState extends State<travel_list> {
   Widget build(BuildContext context) {
     final mdl = Provider.of<TravelDataProvider>(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text("Travel List"), centerTitle: true,),
       body: ListView.builder(
           padding: EdgeInsets.all(20),
           itemCount: mdl.travelList.length,
@@ -52,30 +53,35 @@ class TravelViewCard extends StatelessWidget {
     return Card(
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 200,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(image), fit: BoxFit.cover)),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              name,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Color.fromRGBO(54, 54, 54, 1)),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(shortDetail, style: TextStyle(color: Color.fromRGBO(141, 144, 145, 1)),)
-          ],
+        child: InkWell(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage(),));
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 200,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(image), fit: BoxFit.cover)),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                name,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Color.fromRGBO(54, 54, 54, 1)),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(shortDetail, style: TextStyle(color: Color.fromRGBO(141, 144, 145, 1)),)
+            ],
+          ),
         ),
       ),
     );
