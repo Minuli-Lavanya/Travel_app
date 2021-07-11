@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +29,7 @@ class _DetailsPageState extends State<DetailsPage> {
   Widget build(BuildContext context) {
     final mdl = Provider.of<TravelDataProvider>(context);
     return Scaffold(
+
       body: PageView.builder(
         itemCount: mdl.travelList.length,
           itemBuilder: (context, index){
@@ -60,7 +63,7 @@ class detailsViewCard extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Hero(
                 tag: image,
@@ -70,11 +73,13 @@ class detailsViewCard extends StatelessWidget {
               height: 15.0,
 
             ),
+
             Text(name,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                   color: Color.fromRGBO(54, 54, 54, 1)),
+              
             ),
             SizedBox(
               height: 20.0,
