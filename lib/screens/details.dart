@@ -41,26 +41,6 @@ class _DetailsPageState extends State<DetailsPage> {
     );
 
 
-    // TravelModel Travel = mdl.travelList[index];
-    // return detailsViewCard(
-    //     description: Travel.description,
-    //     image: Travel.image,
-    //     name: Travel.name);
-    // final mdl = Provider.of<TravelDataProvider>(context);
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: Text("Details"),
-    //   ),
-      // body: ListView.builder(
-      //     itemCount: mdl.travelList.length,
-      //     itemBuilder: (context, index) {
-      //       TravelModel Travel = mdl.travelList[index];
-      //       return detailsViewCard(
-      //           name: Travel.name,
-      //           description: Travel.description,
-      //           image: Travel.image);
-      //     }),
-    //);
   }
 }
 
@@ -86,10 +66,9 @@ class detailsViewCard extends StatelessWidget {
                 tag: image,
                 child: Image.network(image)
             ),
-
-            Padding(padding: EdgeInsets.fromLTRB(10, 10, 10, 10)),
             SizedBox(
               height: 15.0,
+
             ),
             Text(name,
               style: TextStyle(
